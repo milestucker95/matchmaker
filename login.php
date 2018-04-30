@@ -32,7 +32,7 @@ if(isset($_POST['submit']))
 
     $result = $conn->query($sql);
 
-    if ($result->num_rows == 1) {
+    if ($result->num_rows > 1) {
             echo "login success!!";
             $_SESSION['login_user'] = $x;//Initializing session
             header("location: user_profile_page.php"); //redirect to profile page

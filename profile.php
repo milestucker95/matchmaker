@@ -19,10 +19,10 @@ if($conn->connnect_error){
 }
 
 echo "Connected successfully";
-$sql = "INSERT INTO `Profile`   (`first_name`,`last_name`,`interests`,`hobbies`,`description`, `age`, `sex`,`email`)
-VALUES ('$x', '$y','$w','$z', '$a', '$b', '$c', '$login_session')";
+echo "$login_session";
+$sql = "INSERT INTO `Profile`   (`first_name`,`last_name`,`interests`,`hobbies`, `age`, `sex`,`description`,`email`)VALUES ('$x', '$y','$w','$z', '$b', '$c','$a', '$login_session')";
 
-
+// $sql = "";
 if ($conn->query($sql) ===TRUE){
  echo "Profile was successfully created!";
  // $_SESSION['login_user'] = $login_session;//Initializing session

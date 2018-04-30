@@ -1,5 +1,6 @@
 <?php
 
+session_start();  //starting session
 $x=$_POST['email'];
 $y=$_POST['password'];
 $w=$_POST['security_question'];
@@ -23,6 +24,8 @@ $login_sql = "INSERT INTO `login_details`   (`email`,`password`,`isNew`) VALUES 
 
 if ($conn->query($sql) ===TRUE && $conn->query($login_sql) ===TRUE){
  echo "Sign up approved";
+ $_SESSION['login_user'] = $x;//Initializing session
+
 }
 else{
  echo "Error: " . $sql . "<br>"  . $conn->error;

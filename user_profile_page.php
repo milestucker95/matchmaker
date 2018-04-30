@@ -1,7 +1,7 @@
 <?php
 include ('session.php');
 
-session_start();  //starting session
+// session_start();  //starting session
 $error='';
 $servername="localhost";
 $user = 'root';
@@ -10,47 +10,31 @@ $db = 'matching';
 
 $conn = new mysqli('localhost',$user,$pass, $db) or die("Unable to connect");
 
-// if($conn->connnect_error){
-//   die("connection failed: "  .  $conn->connect_error);
-// }
-
 echo "Connected successfully";
-//
-// $sql = "SELECT * from login_details where login_details.email = '$x'
-// and login_details.password = '$y'";
 
-$result = mysql_query("SELECT * from Profile where Profile.email = '$login_session'",$conn);
+// $result = mysql_query("SELECT * from Profile where Profile.email = '$login_session'",$conn);
+$sql="SELECT * from Profile where Profile.email = '$login_session'";
+$result=mysqli_query($conn,$sql);
 
-echo "$login_session";
-echo "<table border='1'>
-<tr>
-<th>Firstname</th>
-<th>Lastname</th>
-</tr>";
 
-while($row = mysql_fetch_assoc($result))
+if ($row=mysqli_fetch_assoc($result))
 {
-echo "<tr>";
-echo "<td>" . $row['first_name'] . "</td>";
-echo "<td>" . $row['last_name'] . "</td>";
-echo "</tr>";
-}
-echo "</table>";
+  echo "<br>";
+  echo $row ['first_name'];
+  echo "<br>";
+  echo $row ['last_name'];
+  echo "<br>";
+  echo $row ['email'];
+  echo "<br>";
+  echo $row ['hobbies'];
+  echo "<br>";
+  echo $row ['interests'];
+  echo "<br>";
+  echo $row ['age'];
+  echo "<br>";
+  echo $row ['sex'];
 
-// $sql = $conn->query($result);
+}
 
 
 ?>
-<!-- php echo $login_session;  -->
-<!-- <!DOCTYPE html>
-<html>
-<head>
-<title> Your Profile Page</title>
-</head>
-<body>
-    <div id="profile">
-      <b id="welcome">Welcome : <i></i></b>
-    </div>
-
-  </body>
-  </html> -->
