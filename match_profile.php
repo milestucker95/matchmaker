@@ -57,7 +57,15 @@ if ($row=mysqli_fetch_assoc($result))
   echo "<h3>Age: " .$row ['age'];
   echo "<br>";
   echo "<h3>Gender: " .$row ['sex'];
+  echo "<br>";
+  echo "<br>";
+  echo "<br>";
 
+  echo "<button> Send Message";
+  // if($row['sex'] = 'M' || $row['sex'] = 'm')
+  // {
+  //   echo "<button> Send "
+  // }
 }
 else{
   echo "Empty Profile";
