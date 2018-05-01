@@ -46,15 +46,22 @@ $result=$conn->query($matches);
 // $row2=mysqli_fetch_assoc($result2);
 echo "<br>";
 echo "Matches";
+echo "<br>";
+
 $link_address="match_profile.php";
 if($result->num_rows>0)
 {
     while ($row = $result->fetch_assoc()) {
             // echo "login success!!";
-            // $_SESSION['login_user'] = $x;//Initializing session
+            $_SESSION['login_user'] = $row['email'];//Initializing session
             // header("location: user_profile_page.php"); //redirect to profile page
             echo "<a href='".$link_address."'> '".$row['email']."'</a>";
             echo "<br>";
+            $product_id = $row['email'];
+          // echo  "<a href="match_profile.php?id= $product_id">"
+
+            // echo"  <a href="match_profile.php?">'".$row['email']."'</a>"
+
 
 
             // echo "<h3>Name: " . $row ['email'] . "  ";
